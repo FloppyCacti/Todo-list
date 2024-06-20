@@ -1,6 +1,6 @@
 const categories = [categoryFactory('Today'),categoryFactory('Upcoming')]
 
-export function sideBar(){
+function sideBar(){
     const container = document.querySelector('#container');
 
     const sideBar = document.createElement('div');
@@ -9,7 +9,7 @@ export function sideBar(){
     container.appendChild(sideBar);
 }
 
-export function buttonToAddCategory(){
+function buttonToAddCategory(){
     const sideBar = document.querySelector('#sideBar');
 
     const addButton = document.createElement('button');
@@ -23,4 +23,16 @@ function categoryFactory(name){
     return{
         categoryName: name
     }
+}
+
+function insertCategoriesIntoSideBar(){
+    const container = document.querySelector('#container');
+    const categoryList = docuemnt.createElement('li');
+
+    categories.forEach(element => {
+        let categoryElement = document.createElement('ul');
+        categoryList.appendChild(categoryElement);
+    });
+
+    container.appendChild(categoryList);
 }
