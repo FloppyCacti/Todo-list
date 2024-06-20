@@ -1,4 +1,4 @@
-const categories = []
+const categories = [categoryFactory('Today'),categoryFactory('Upcoming')]
 
 export function sideBar(){
     const container = document.querySelector('#container');
