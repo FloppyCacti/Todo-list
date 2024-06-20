@@ -1,4 +1,4 @@
-function addSideBar(){
+export function addSideBar(){
     const categories = [categoryFactory('Today'),categoryFactory('Upcoming')]
 
     function sideBar(){
