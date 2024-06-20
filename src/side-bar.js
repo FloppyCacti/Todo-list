@@ -6,3 +6,19 @@ export function sideBar(){
 
     container.appendChild(sideBar);
 }
+
+export function buttonToAddCatagory(){
+    const sideBar = document.querySelector('#sideBar');
+
+    const addButton = document.createElement('button');
+    addButton.innerHTML = 'Add Catagory';
+    addButton.style.height = '30px';
+    addButton.style.width = '100%';
+    sideBar.appendChild(addButton);
+}
+
+function catagoryFactory(name){
+    return{
+        catagoryName: name
+    }
+}
