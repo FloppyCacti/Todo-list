@@ -1,0 +1,12 @@
+body{
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 80px auto;
+    background-color: #bc1a30;
+}
+
+header{
+    grid-row: 1;
+    background-color: #363636;
+}   
