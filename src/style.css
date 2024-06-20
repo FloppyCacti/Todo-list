@@ -12,13 +12,21 @@ header{
     border-bottom: 10px solid #ff5959;
 }
 
-#content{
+#container{
     display: flex;
-    flex-direction: column;
-    padding: 100px;
+    flex-direction: row;
+    padding: 100px 200px 100px 200px;
+    gap: 10px;
 }
 
 #sideBar{
     flex: 1;
-    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 10px rgba(204, 204, 204, 0.274);
+}
+
+#listContent{
+    flex: 3;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 10px rgba(204, 204, 204, 0.274);
 }
