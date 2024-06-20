@@ -1,3 +1,5 @@
+const categories = []
+
 export function sideBar(){
     const container = document.querySelector('#container');
 
