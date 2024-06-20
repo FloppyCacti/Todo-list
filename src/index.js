@@ -1,7 +1,7 @@
 import './style.css';
-import { sideBar, buttonToAddCatagory} from './side-bar.js';
+import { sideBar, buttonToAddCategory} from './side-bar.js';
 import { listContent } from './list-content.js';
 
 sideBar();
 listContent();
-buttonToAddCatagory();
+buttonToAddCategory();

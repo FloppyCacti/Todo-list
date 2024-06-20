@@ -9,18 +9,18 @@ export function sideBar(){
     container.appendChild(sideBar);
 }
 
-export function buttonToAddCatagory(){
+export function buttonToAddCategory(){
     const sideBar = document.querySelector('#sideBar');
 
     const addButton = document.createElement('button');
-    addButton.innerHTML = 'Add Catagory';
+    addButton.innerHTML = 'Add Category';
     addButton.style.height = '30px';
     addButton.style.width = '100%';
     sideBar.appendChild(addButton);
 }
 
-function catagoryFactory(name){
+function categoryFactory(name){
     return{
-        catagoryName: name
+        categoryName: name
     }
 }
