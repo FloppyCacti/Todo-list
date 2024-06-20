@@ -3,15 +3,22 @@ body{
     margin: 0;
     display: grid;
     grid-template-rows: 80px auto;
-    background-color: #fffb96;
+    background-color: #f2f2f7;
 }
 
 header{
     grid-row: 1;
-    background-color: #01cdfe;
+    background-color: #007aff;
+    border-bottom: 10px solid #ff5959;
 }
 
 #content{
     display: flex;
     flex-direction: column;
+    padding: 100px;
+}
+
+#sideBar{
+    flex: 1;
+    height: auto;
 }
