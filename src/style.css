@@ -9,4 +9,9 @@ body{
 header{
     grid-row: 1;
     background-color: #363636;
-}   
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+}
