@@ -42,10 +42,26 @@ export function addSideBar(){
     
 
         categories.forEach(element => {
+            let category = document.createElement('div');
+            category.setAttribute('id', 'categoryButtonContainer');
+
+            let editCategoryButton = document.createElement('button');
+            let deleteCategoryButton = document.createElement('button');
             let categoryElement = document.createElement('button');
-            categoryElement.classList.add('sidebarButtons')
+
+            categoryElement.classList.add('sidebarButtons');
+            categoryElement.setAttribute('id', 'categoryElement');
+            editCategoryButton.classList.add('sidebarButtons');
+            editCategoryButton.innerHTML = '📝';
+            deleteCategoryButton.classList.add('sidebarButtons');
+            deleteCategoryButton.innerHTML = '🗑';
+
             categoryElement.innerHTML = `${element.categoryName}`;
-            listOfCategories.appendChild(categoryElement);
+
+            category.appendChild(categoryElement);
+            category.appendChild(editCategoryButton);
+            category.appendChild(deleteCategoryButton);
+            listOfCategories.appendChild(category);
         });
 
         sideBar.appendChild(listOfCategories);
