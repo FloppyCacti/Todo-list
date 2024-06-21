@@ -49,17 +49,33 @@ export function addSideBar(){
         const buttons = document.createElement('div');
         const cancelButton = document.createElement('button');
         const submitButton = document.createElement('button');
+        
+        function showError(){
+            const showError = document.createElement('div');
+            showError.innerHTML = 'input cannot be empty'
+            showError.style.color = 'red';
 
+            categoryName.appendChild(showError);
+        }
+        
+        container.setAttribute('id', 'sideBarDialog');
         categoryNameLabel.innerHTML = 'Name: '
         cancelButton.innerHTML = 'Cancel';
         cancelButton.addEventListener('click', (event) => {
             event.preventDefault();
-            console.log('canel is cliced');
+            form.reset();
+            container.close();
         })
         submitButton.innerHTML = 'Submit';
         submitButton.addEventListener('click', (event) =>{
             event.preventDefault();
-            console.log('submit is clicked');
+            if(categoryNameInput.value == ''){
+                showError();
+            }else{
+                addCategoryToArray(categoryNameInput.value);
+                container.close();
+                console.log(categories);
+            }
         })
 
         document.querySelector('body').appendChild(container);
@@ -72,6 +88,10 @@ export function addSideBar(){
         form.appendChild(buttons);
 
         container.showModal();
+    }
+
+    function addCategoryToArray(name){
+        categories.push(categoryFactory(name));
     }
 
     sideBar();
