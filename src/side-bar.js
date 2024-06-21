@@ -16,6 +16,10 @@ export function addSideBar(){
         const addButton = document.createElement('button');
         addButton.innerHTML = 'Add Category';
         addButton.classList.add('sidebarButtons')
+        addButton.addEventListener('click', () => {
+            createCategoryForm()
+        })
+
         sideBar.appendChild(addButton);
     }
 
@@ -27,17 +31,24 @@ export function addSideBar(){
 
     function insertCategoriesIntoSideBar(){
         const sideBar = document.querySelector('#sideBar');
-        const listOfCatagories = document.createElement('div');
-        listOfCatagories.setAttribute('id', 'categoryContainer');
+        let listOfCategories = document.querySelector('#categoryContainer');
+        if (listOfCategories) {
+            listOfCategories.remove();
+        }
+    
+        // Create a new category container
+        listOfCategories = document.createElement('div');
+        listOfCategories.setAttribute('id', 'categoryContainer');
+    
 
         categories.forEach(element => {
             let categoryElement = document.createElement('button');
             categoryElement.classList.add('sidebarButtons')
             categoryElement.innerHTML = `${element.categoryName}`;
-            listOfCatagories.appendChild(categoryElement);
+            listOfCategories.appendChild(categoryElement);
         });
 
-        sideBar.appendChild(listOfCatagories);
+        sideBar.appendChild(listOfCategories);
     }
 
     function createCategoryForm(){
@@ -74,7 +85,7 @@ export function addSideBar(){
             }else{
                 addCategoryToArray(categoryNameInput.value);
                 container.close();
-                console.log(categories);
+                insertCategoriesIntoSideBar();
             }
         })
 
@@ -97,5 +108,4 @@ export function addSideBar(){
     InsertSideBarToContainer();
     buttonToAddCategory();
     insertCategoriesIntoSideBar();
-    createCategoryForm();
 }
