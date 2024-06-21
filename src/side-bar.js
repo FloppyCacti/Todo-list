@@ -70,6 +70,11 @@ export function addSideBar(){
         }
         
         container.setAttribute('id', 'sideBarDialog');
+        container.addEventListener('keydown', () => {
+            if(event.key === 'Enter'){
+                event.preventDefault();
+            }
+        })
         categoryNameLabel.innerHTML = 'Name: '
         cancelButton.innerHTML = 'Cancel';
         cancelButton.addEventListener('click', (event) => {
