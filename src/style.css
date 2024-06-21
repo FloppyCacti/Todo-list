@@ -55,3 +55,11 @@ header{
 .sidebarButtons:hover{
     background-color: rgba(204, 204, 204, 0.274);
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
