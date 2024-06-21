@@ -63,3 +63,8 @@ form{
     align-items: center;
     gap: 10px;
 }
+
+dialog{
+    border-radius: 10px;
+    border: none;
+}

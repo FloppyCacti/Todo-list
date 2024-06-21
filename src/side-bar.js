@@ -50,7 +50,7 @@ export function addSideBar(){
         const cancelButton = document.createElement('button');
         const submitButton = document.createElement('button');
 
-        categoryNameLabel.innerHTML = 'Name:'
+        categoryNameLabel.innerHTML = 'Name: '
         cancelButton.innerHTML = 'Cancel';
         cancelButton.addEventListener('click', (event) => {
             event.preventDefault();
