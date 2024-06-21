@@ -14,7 +14,7 @@ export function addSideBar(){
         const sideBar = document.querySelector('#sideBar');
 
         const addButton = document.createElement('button');
-        addButton.innerHTML = 'Add Category';
+        addButton.innerHTML = '➕ Add Category';
         addButton.classList.add('sidebarButtons')
         addButton.setAttribute('id', 'addCategoryButton');
         addButton.addEventListener('click', () => {
@@ -46,16 +46,19 @@ export function addSideBar(){
             category.setAttribute('id', 'categoryButtonContainer');
 
             let editCategoryButton = document.createElement('button');
-            let deleteCategoryButton = document.createElement('button');
-            let categoryElement = document.createElement('button');
-
-            categoryElement.classList.add('sidebarButtons');
-            categoryElement.setAttribute('id', 'categoryElement');
             editCategoryButton.classList.add('sidebarButtons');
             editCategoryButton.innerHTML = '📝';
+
+            let deleteCategoryButton = document.createElement('button');
             deleteCategoryButton.classList.add('sidebarButtons');
             deleteCategoryButton.innerHTML = '🗑';
+            deleteCategoryButton.addEventListener('click', () => {
+                deleteCategory(element);
+            })
 
+            let categoryElement = document.createElement('button');
+            categoryElement.classList.add('sidebarButtons');
+            categoryElement.setAttribute('id', 'categoryElement');
             categoryElement.innerHTML = `${element.categoryName}`;
 
             category.appendChild(categoryElement);
@@ -126,6 +129,14 @@ export function addSideBar(){
         categories.push(categoryFactory(name));
     }
 
+    function deleteCategory(element){
+        const index = categories.indexOf(element)
+
+        if (index > -1) {
+            categories.splice(index, 1);
+            insertCategoriesIntoSideBar();
+        }
+    }
     InsertSideBarToContainer();
     buttonToAddCategory();
     insertCategoriesIntoSideBar();
