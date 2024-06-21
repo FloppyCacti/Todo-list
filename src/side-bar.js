@@ -15,8 +15,7 @@ export function addSideBar(){
 
         const addButton = document.createElement('button');
         addButton.innerHTML = 'Add Category';
-        addButton.style.height = '30px';
-        addButton.style.width = '100%';
+        addButton.classList.add('sidebarButtons')
         sideBar.appendChild(addButton);
     }
 
@@ -27,16 +26,18 @@ export function addSideBar(){
     }
 
     function insertCategoriesIntoSideBar(){
-        const container = document.querySelector('#container');
-        const categoryList = docuemnt.createElement('li');
+        const sideBar = document.querySelector('#sideBar');
+        const listOfCatagories = document.createElement('div');
+        listOfCatagories.setAttribute('id', 'categoryContainer');
 
         categories.forEach(element => {
-            let categoryElement = document.createElement('ul');
+            let categoryElement = document.createElement('button');
+            categoryElement.classList.add('sidebarButtons')
             categoryElement.innerHTML = `${element.categoryName}`;
-            categoryList.appendChild(categoryElement);
+            listOfCatagories.appendChild(categoryElement);
         });
 
-        container.appendChild(categoryList);
+        sideBar.appendChild(listOfCatagories);
     }
 
     sideBar();
