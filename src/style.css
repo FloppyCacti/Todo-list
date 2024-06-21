@@ -75,3 +75,7 @@ dialog{
     flex: 4;
     text-align: left;
 }
+
+#addCategoryButton{
+    width: 100%;
+}

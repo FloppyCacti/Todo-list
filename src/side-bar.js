@@ -16,6 +16,7 @@ export function addSideBar(){
         const addButton = document.createElement('button');
         addButton.innerHTML = 'Add Category';
         addButton.classList.add('sidebarButtons')
+        addButton.setAttribute('id', 'addCategoryButton');
         addButton.addEventListener('click', () => {
             createCategoryForm()
         })
@@ -40,7 +41,6 @@ export function addSideBar(){
         listOfCategories = document.createElement('div');
         listOfCategories.setAttribute('id', 'categoryContainer');
     
-
         categories.forEach(element => {
             let category = document.createElement('div');
             category.setAttribute('id', 'categoryButtonContainer');
