@@ -1,7 +1,7 @@
 export function addSideBar(){
     const categories = [categoryFactory('Today'),categoryFactory('Upcoming')]
 
-    function sideBar(){
+    function InsertSideBarToContainer(){
         const container = document.querySelector('#container');
 
         const sideBar = document.createElement('div');
@@ -94,7 +94,7 @@ export function addSideBar(){
         categories.push(categoryFactory(name));
     }
 
-    sideBar();
+    InsertSideBarToContainer();
     buttonToAddCategory();
     insertCategoriesIntoSideBar();
     createCategoryForm();
