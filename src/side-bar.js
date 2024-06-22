@@ -48,6 +48,9 @@ export function addSideBar(){
             let editCategoryButton = document.createElement('button');
             editCategoryButton.classList.add('sidebarButtons');
             editCategoryButton.innerHTML = '📝';
+            editCategoryButton.addEventListener('click', () => {
+                editCategoryName(element);
+            })
 
             let deleteCategoryButton = document.createElement('button');
             deleteCategoryButton.classList.add('sidebarButtons');
@@ -137,6 +140,18 @@ export function addSideBar(){
             insertCategoriesIntoSideBar();
         }
     }
+
+    function editCategoryName(element){
+        const index = categories.indexOf(element);
+
+        const newName = prompt('New Name: ');
+
+        if (index > -1){
+            element.categoryName = newName;
+            insertCategoriesIntoSideBar();
+        }
+    }
+
     InsertSideBarToContainer();
     buttonToAddCategory();
     insertCategoriesIntoSideBar();
