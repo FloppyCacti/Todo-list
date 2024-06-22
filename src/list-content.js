@@ -54,10 +54,58 @@ export function listContent(){
         taskCompletedContainer.appendChild(taskCompletedHeader);
     }
 
+    function taskFactory(title, description, dueDate, priority){
+        return{
+            taskTitle: title,
+            taskDescription: description,
+            taskDueDate: dueDate,
+            taskPriority: priority
+        }
+    }
+
+    function taskform(){
+        const dialog = document.createElement('dialog');
+        const form = document.createElement('form');
+
+        const titleContainer = document.createElement('div');
+        const titleLabel = document.createElement('label');
+        titleLabel.innerHTML = 'Title: ';
+        const titleInput = document.createElement('input');
+
+        titleContainer.appendChild(titleLabel);
+        titleContainer.appendChild(titleInput);
+
+        const dueDateContainer = document.createElement('div');
+        const dueDateLabel = document.createElement('label');
+        dueDateLabel.innerHTML = 'Due Date: ';
+        const dueDateInput = document.createElement('input');
+        dueDateInput.setAttribute('type', 'date');
+
+        dueDateContainer.appendChild(dueDateLabel);
+        dueDateContainer.appendChild(dueDateInput);
+
+        const descriptionContainer = document.createElement('div');
+        const descriptionLabel = document.createElement('label');
+        descriptionLabel.innerHTML = 'Description: '
+        const descriptionInput = document.createElement('input')
+
+        descriptionContainer.appendChild(descriptionLabel);
+        descriptionContainer.appendChild(descriptionInput);
+
+        dialog.appendChild(form);
+        form.appendChild(titleContainer);
+        form.appendChild(dueDateContainer);
+        form.appendChild(descriptionContainer);
+
+        dialog.close();
+        dialog.showModal();
+    }
+
     function addHeaderAndTask(){
         addHeaderToContainer();
     }
 
+    taskform();
     makelistContainer();
     addHeaderAndTask();
 }
