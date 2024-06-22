@@ -7,28 +7,28 @@ export function listContent(){
     const listContainer = document.createElement('div');
     listContainer.setAttribute('id', 'listContainer');
 
-    const taskToDo = document.createElement('div');
+    const taskToDoHeader   = document.createElement('div');
     const taskToDoLabel = document.createElement('div');
     taskToDoLabel.classList.add('taskLabel');
     taskToDoLabel.innerHTML = 'Task To Do';
     const taskToDoButton = document.createElement('button');
     taskToDoButton.classList.add('taskButton');
     taskToDoButton.innerHTML = '➕';
-    taskToDo.classList.add('listContentHeader');
+    taskToDoHeader.classList.add('listContentHeader');
 
-    taskToDo.appendChild(taskToDoLabel);
-    taskToDo.appendChild(taskToDoButton);
+    taskToDoHeader.appendChild(taskToDoLabel);
+    taskToDoHeader.appendChild(taskToDoButton);
 
-    const taskCompleted = document.createElement('div');
+    const taskCompletedHeader = document.createElement('div');
     const taskCompletedLable = document.createElement('div');
     taskCompletedLable.classList.add('taskLabel');
     taskCompletedLable.innerHTML = 'Completed Tasks';
-    taskCompleted.classList.add('listContentHeader');
+    taskCompletedHeader.classList.add('listContentHeader');
 
-    taskCompleted.appendChild(taskCompletedLable);
+    taskCompletedHeader.appendChild(taskCompletedLable);
 
-    listContainer.appendChild(taskToDo);
-    listContainer.appendChild(taskCompleted);
+    listContainer.appendChild(taskToDoHeader);
+    listContainer.appendChild(taskCompletedHeader);
 
     listContent.appendChild(listContainer); 
     container.appendChild(listContent);
