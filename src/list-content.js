@@ -1,4 +1,7 @@
 export function listContent(){
+    const taskTodoArray = [];
+    const taskCompletedArray = [];
+
     function makelistContainer(){
         const container = document.querySelector('#container');
 
@@ -27,10 +30,14 @@ export function listContent(){
         const taskToDoLabel = document.createElement('div');
         taskToDoLabel.classList.add('taskLabel');
         taskToDoLabel.innerHTML = 'Task To Do';
+
         const taskToDoButton = document.createElement('button');
         taskToDoButton.classList.add('taskButton');
         taskToDoButton.innerHTML = '➕';
         taskToDoHeader.classList.add('listContentHeader');
+        taskToDoButton.addEventListener('click', () => {
+                console.log('add');
+        });
 
         taskToDoHeader.appendChild(taskToDoLabel);
         taskToDoHeader.appendChild(taskToDoButton);
@@ -45,12 +52,12 @@ export function listContent(){
 
         taskCompletedHeader.appendChild(taskCompletedLable);
         taskCompletedContainer.appendChild(taskCompletedHeader);
+    }
 
-        listContainer.appendChild(taskToDoContainer);
-        listContainer.appendChild(taskCompletedContainer);
-
+    function addHeaderAndTask(){
+        addHeaderToContainer();
     }
 
     makelistContainer();
-    addHeaderToContainer();
+    addHeaderAndTask();
 }
