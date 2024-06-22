@@ -13,6 +13,7 @@ export function listContent(){
     taskToDoLabel.innerHTML = 'Task To Do';
     const taskToDoButton = document.createElement('button');
     taskToDoButton.classList.add('taskButton');
+    taskToDoButton.innerHTML = '➕';
     taskToDo.classList.add('listContentHeader');
 
     taskToDo.appendChild(taskToDoLabel);
@@ -22,12 +23,9 @@ export function listContent(){
     const taskCompletedLable = document.createElement('div');
     taskCompletedLable.classList.add('taskLabel');
     taskCompletedLable.innerHTML = 'Completed Tasks';
-    const taskCompletedButton = document.createElement('button');
-    taskCompletedButton.classList.add('taskButton');
     taskCompleted.classList.add('listContentHeader');
 
     taskCompleted.appendChild(taskCompletedLable);
-    taskCompleted.appendChild(taskCompletedButton);
 
     listContainer.appendChild(taskToDo);
     listContainer.appendChild(taskCompleted);
