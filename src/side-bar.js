@@ -17,9 +17,7 @@ export function addSideBar(){
         addButton.innerHTML = '➕ Add Category';
         addButton.classList.add('sidebarButtons')
         addButton.setAttribute('id', 'addCategoryButton');
-        addButton.addEventListener('click', () => {
-            createCategoryForm()
-        })
+        addButton.addEventListener('click', () => { showCategoryFormDialog() });
 
         sideBar.appendChild(addButton);
     }
@@ -75,6 +73,7 @@ export function addSideBar(){
 
     function createCategoryForm(){
         const container = document.createElement('dialog');
+        container.setAttribute('id', 'categoryFormDialog');
         const form = document.createElement('form');
         const categoryName = document.createElement('div');
         const categoryNameLabel = document.createElement('label');
@@ -150,6 +149,14 @@ export function addSideBar(){
             element.categoryName = newName;
             insertCategoriesIntoSideBar();
         }
+    }
+
+    function showCategoryFormDialog() {
+        const dialog = document.getElementById('categoryFormDialog');
+        if (!dialog) {
+            dialog = createCategoryForm();
+        }
+        dialog.showModal();
     }
 
     InsertSideBarToContainer();

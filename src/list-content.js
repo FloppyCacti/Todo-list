@@ -35,9 +35,7 @@ export function listContent(){
         taskToDoButton.classList.add('taskButton');
         taskToDoButton.innerHTML = '➕';
         taskToDoHeader.classList.add('listContentHeader');
-        taskToDoButton.addEventListener('click', () => {
-                console.log('add');
-        });
+        taskToDoButton.addEventListener('click', () => { showTaskFormDialog() });
 
         taskToDoHeader.appendChild(taskToDoLabel);
         taskToDoHeader.appendChild(taskToDoButton);
@@ -65,6 +63,7 @@ export function listContent(){
 
     function taskform(){
         const dialog = document.createElement('dialog');
+        dialog.setAttribute('id', 'taskFormDialog');
         const form = document.createElement('form');
 
         const titleContainer = document.createElement('div');
@@ -96,13 +95,21 @@ export function listContent(){
         form.appendChild(titleContainer);
         form.appendChild(dueDateContainer);
         form.appendChild(descriptionContainer);
+        document.body.appendChild(dialog);
 
-        dialog.close();
-        dialog.showModal();
+        return dialog;
     }
 
     function addHeaderAndTask(){
         addHeaderToContainer();
+    }
+
+    function showTaskFormDialog() {
+        const dialog = document.getElementById('taskFormDialog');
+        if (!dialog) {
+            dialog = taskform();
+        }
+        dialog.showModal();
     }
 
     taskform();
