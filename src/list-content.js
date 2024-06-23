@@ -91,10 +91,21 @@ export function listContent(){
         descriptionContainer.appendChild(descriptionLabel);
         descriptionContainer.appendChild(descriptionInput);
 
-        dialog.appendChild(form);
+        const listFormButtonContainer = document.createElement('div');
+        listFormButtonContainer.setAttribute('id', 'listFormButtons');
+        const addItemtoListBtn = document.createElement('button');
+        addItemtoListBtn.innerHTML = 'Create';
+        const cancelBtn = document.createElement('button');
+        cancelBtn.innerHTML = 'Cancel';
+
+        listFormButtonContainer.appendChild(addItemtoListBtn);
+        listFormButtonContainer.appendChild(cancelBtn);
+
         form.appendChild(titleContainer);
         form.appendChild(dueDateContainer);
         form.appendChild(descriptionContainer);
+        form.appendChild(listFormButtonContainer);
+        dialog.appendChild(form);
         document.body.appendChild(dialog);
 
         return dialog;
