@@ -86,7 +86,7 @@ export function listContent(){
 
         const descriptionContainer = document.createElement('div');
         const descriptionLabel = document.createElement('label');
-        descriptionLabel.innerHTML = 'Description: ';
+        descriptionLabel.innerHTML = 'Description (optional) : ';
         const descriptionInput = document.createElement('input');
         descriptionInput.style.width = '100%';
         descriptionInput.style.height = '100px';    
