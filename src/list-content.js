@@ -100,6 +100,11 @@ export function listContent(){
         addItemtoListBtn.innerHTML = 'Create';
         const cancelBtn = document.createElement('button');
         cancelBtn.innerHTML = 'Cancel';
+        cancelBtn.addEventListener('click', (event) => {
+            const dialog = document.getElementById('taskFormDialog');
+            event.preventDefault();
+            dialog.close();
+        })
 
         listFormButtonContainer.appendChild(addItemtoListBtn);
         listFormButtonContainer.appendChild(cancelBtn);
