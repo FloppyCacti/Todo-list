@@ -70,6 +70,7 @@ export function listContent(){
         const titleLabel = document.createElement('label');
         titleLabel.innerHTML = 'Title: ';
         const titleInput = document.createElement('input');
+        titleInput.style.width = '82%';
 
         titleContainer.appendChild(titleLabel);
         titleContainer.appendChild(titleInput);
@@ -85,8 +86,10 @@ export function listContent(){
 
         const descriptionContainer = document.createElement('div');
         const descriptionLabel = document.createElement('label');
-        descriptionLabel.innerHTML = 'Description: '
-        const descriptionInput = document.createElement('input')
+        descriptionLabel.innerHTML = 'Description: ';
+        const descriptionInput = document.createElement('input');
+        descriptionInput.style.width = '100%';
+        descriptionInput.style.height = '100px';    
 
         descriptionContainer.appendChild(descriptionLabel);
         descriptionContainer.appendChild(descriptionInput);

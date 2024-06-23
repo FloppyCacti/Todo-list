@@ -61,7 +61,7 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     gap: 10px;
 }
 
@@ -120,4 +120,8 @@ dialog{
 
 .taskButton:hover{
     background-color: rgb(184, 184, 184);
+}
+
+#listFormButtons{
+    text-align: right;
 }
