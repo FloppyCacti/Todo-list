@@ -142,6 +142,7 @@ export function listContent(){
         cancelBtn.addEventListener('click', (event) => {
             const dialog = document.getElementById('taskFormDialog');
             event.preventDefault();
+            form.reset();
             dialog.close();
         })
 
