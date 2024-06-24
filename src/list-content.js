@@ -1,5 +1,5 @@
 export function listContent(){
-    const taskTodoArray = [];
+    const taskTodoArray = [taskFactory('test', '10/5/2022', '', 'high')];
     const taskCompletedArray = [];
 
     function makelistContainer(){
@@ -29,6 +29,7 @@ export function listContent(){
         const taskToDoHeader   = document.createElement('div');
         const taskToDoLabel = document.createElement('div');
         taskToDoLabel.classList.add('taskLabel');
+        taskToDoLabel.setAttribute('id', 'taskToDoHeaderLabel');
         taskToDoLabel.innerHTML = 'Task To Do';
 
         const taskToDoButton = document.createElement('button');
@@ -45,6 +46,7 @@ export function listContent(){
         const taskCompletedHeader = document.createElement('div');
         const taskCompletedLabel = document.createElement('div');
         taskCompletedLabel.classList.add('taskLabel');
+        taskCompletedLabel.setAttribute('id', 'taskCompletedHeaderLabel');
         taskCompletedLabel.innerHTML = 'Completed Tasks';
         taskCompletedHeader.classList.add('listContentHeader');
 

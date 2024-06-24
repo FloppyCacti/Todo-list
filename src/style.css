@@ -133,7 +133,7 @@ dialog{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: rgba(184, 184, 184, 0.247);
+    background-color: #007bff27;
     border-radius: 10px;
 }
 
@@ -153,6 +153,14 @@ dialog{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: rgba(184, 184, 184, 0.247);
+    background-color: #ff595923;
     border-radius: 10px;
+}
+
+#taskToDoHeaderLabel{
+    background-color: #007bff63;
+}
+
+#taskCompletedHeaderLabel{
+    background-color: #ff000086;
 }
