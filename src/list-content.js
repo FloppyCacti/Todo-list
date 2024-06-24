@@ -91,24 +91,28 @@ export function listContent(){
         const lowPriority = document.createElement('input');
         lowPriority.setAttribute("type", "radio");
         lowPriority.setAttribute('name', 'priority');
+        lowPriority.setAttribute('value', 'low');
         const lowPriorityLabel = document.createElement('label');
         lowPriorityLabel.innerHTML = 'Low';
 
         const mediumPriority = document.createElement('input');
         mediumPriority.setAttribute("type", "radio");
         mediumPriority.setAttribute('name', 'priority');
+        mediumPriority.setAttribute('value', 'medium');
         const mediumPriorityLabel = document.createElement('label');
         mediumPriorityLabel.innerHTML = 'Medium';
 
         const highPriority = document.createElement('input');
         highPriority.setAttribute("type", "radio");
         highPriority.setAttribute('name', 'priority');
+        highPriority.setAttribute('value', 'high');
         const highPriorityLabel = document.createElement('label');
         highPriorityLabel.innerHTML = 'High';
 
         const noPriority = document.createElement('input');
         noPriority.setAttribute("type", "radio");
         noPriority.setAttribute('name', 'priority');
+        noPriority.setAttribute('value', 'no');
         const noPriorityLabel = document.createElement('label');
         noPriorityLabel.innerHTML = 'No';
 
@@ -137,6 +141,19 @@ export function listContent(){
         listFormButtonContainer.setAttribute('id', 'listFormButtons');
         const addItemtoListBtn = document.createElement('button');
         addItemtoListBtn.innerHTML = 'Create';
+        addItemtoListBtn.addEventListener('click', (element) => {
+            element.preventDefault();
+            const priorityElements = document.getElementsByName('priority');
+            let priority;
+
+            priorityElements.forEach(ele => {
+                if(ele.checked){
+                    priority = ele.value;
+                }
+            });
+            
+            taskTodoArray.push(taskFactory(titleInput.value, dueDateInput.value, priority, descriptionInput.value))
+        });
         const cancelBtn = document.createElement('button');
         cancelBtn.innerHTML = 'Cancel';
         cancelBtn.addEventListener('click', (event) => {
@@ -144,7 +161,7 @@ export function listContent(){
             event.preventDefault();
             form.reset();
             dialog.close();
-        })
+        });
 
         listFormButtonContainer.appendChild(addItemtoListBtn);
         listFormButtonContainer.appendChild(cancelBtn);
