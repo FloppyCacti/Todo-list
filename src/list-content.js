@@ -63,6 +63,10 @@ export function listContent(){
             completeButton.classList.add('taskButton');
             completeButton.innerHTML = '✔';
             completeButton.style.fontSize = '30px';
+            completeButton.addEventListener('click', () => {
+                moveTaskToCompletedArray(ele);
+            })
+
             task.classList.add('taskLabel');
             task.innerHTML = `${ele.title}`;
 
@@ -212,14 +216,23 @@ export function listContent(){
         addTaskToContainer();
     }
 
-    function showTaskFormDialog() {
+    function showTaskFormDialog(){
         const dialog = document.getElementById('taskFormDialog');
         if (!dialog) {
             dialog = taskform();
         }
         dialog.showModal();
     }
-    
+
+    function moveTaskToCompletedArray(element){
+        console.log('test');
+        const temp = taskTodoArray[element];
+        taskTodoArray.splice(element, 1);
+        taskCompletedArray.push(temp);
+        console.log(taskTodoArray, taskCompletedArray);
+        addHeaderAndTask();
+    }
+
     taskform();
     makelistContainer();
     addHeaderAndTask();
