@@ -168,6 +168,7 @@ dialog{
     padding: 10px;
     margin-left: auto;
     font-size: 20px;
+    text-align: right;
 }
 
 .taskTitleLabel{
