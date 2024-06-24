@@ -43,12 +43,12 @@ export function listContent(){
 
         const taskCompletedContainer = document.querySelector('#taskCompletedContainer');
         const taskCompletedHeader = document.createElement('div');
-        const taskCompletedLable = document.createElement('div');
-        taskCompletedLable.classList.add('taskLabel');
-        taskCompletedLable.innerHTML = 'Completed Tasks';
+        const taskCompletedLabel = document.createElement('div');
+        taskCompletedLabel.classList.add('taskLabel');
+        taskCompletedLabel.innerHTML = 'Completed Tasks';
         taskCompletedHeader.classList.add('listContentHeader');
 
-        taskCompletedHeader.appendChild(taskCompletedLable);
+        taskCompletedHeader.appendChild(taskCompletedLabel);
         taskCompletedContainer.appendChild(taskCompletedHeader);
     }
 
@@ -84,6 +84,44 @@ export function listContent(){
         dueDateContainer.appendChild(dueDateLabel);
         dueDateContainer.appendChild(dueDateInput);
 
+        const selectPriorityContainer = document.createElement("div");
+        const selectPriorityLabel = document.createElement('label');
+        selectPriorityLabel.innerHTML = 'Priority: ';
+
+        const lowPriority = document.createElement('input');
+        lowPriority.setAttribute("type", "radio");
+        lowPriority.setAttribute('name', 'priority');
+        const lowPriorityLabel = document.createElement('label');
+        lowPriorityLabel.innerHTML = 'Low';
+
+        const mediumPriority = document.createElement('input');
+        mediumPriority.setAttribute("type", "radio");
+        mediumPriority.setAttribute('name', 'priority');
+        const mediumPriorityLabel = document.createElement('label');
+        mediumPriorityLabel.innerHTML = 'Medium';
+
+        const highPriority = document.createElement('input');
+        highPriority.setAttribute("type", "radio");
+        highPriority.setAttribute('name', 'priority');
+        const highPriorityLabel = document.createElement('label');
+        highPriorityLabel.innerHTML = 'High';
+
+        const noPriority = document.createElement('input');
+        noPriority.setAttribute("type", "radio");
+        noPriority.setAttribute('name', 'priority');
+        const noPriorityLabel = document.createElement('label');
+        noPriorityLabel.innerHTML = 'No';
+
+        selectPriorityContainer.appendChild(selectPriorityLabel);
+        selectPriorityContainer.appendChild(lowPriority);
+        selectPriorityContainer.appendChild(lowPriorityLabel);
+        selectPriorityContainer.appendChild(mediumPriority);
+        selectPriorityContainer.appendChild(mediumPriorityLabel);
+        selectPriorityContainer.appendChild(highPriority);
+        selectPriorityContainer.appendChild(highPriorityLabel);
+        selectPriorityContainer.appendChild(noPriority);
+        selectPriorityContainer.appendChild(noPriorityLabel);
+
         const descriptionContainer = document.createElement('div');
         const descriptionLabel = document.createElement('label');
         descriptionLabel.innerHTML = 'Description (optional) : ';
@@ -93,6 +131,7 @@ export function listContent(){
 
         descriptionContainer.appendChild(descriptionLabel);
         descriptionContainer.appendChild(descriptionInput);
+
 
         const listFormButtonContainer = document.createElement('div');
         listFormButtonContainer.setAttribute('id', 'listFormButtons');
@@ -111,6 +150,7 @@ export function listContent(){
 
         form.appendChild(titleContainer);
         form.appendChild(dueDateContainer);
+        form.appendChild(selectPriorityContainer);
         form.appendChild(descriptionContainer);
         form.appendChild(listFormButtonContainer);
         dialog.appendChild(form);
