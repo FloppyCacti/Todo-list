@@ -167,6 +167,8 @@ dialog{
 #otherInfoInLabel{
     padding: 10px;
     margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     font-size: 20px;
     text-align: right;
 }
