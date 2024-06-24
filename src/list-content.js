@@ -52,12 +52,24 @@ export function listContent(){
         taskCompletedContainer.appendChild(taskCompletedHeader);
     }
 
-    function taskFactory(title, description, dueDate, priority){
+    function addTaskToContainer(){
+        taskTodoArray.forEach(ele => {
+            const container = document.querySelector('#taskToDoContainer');
+
+            const task = document.createElement('div');
+            task.classList.add('taskLabel');
+            task.innerHTML = `${ele.title}`;
+
+            container.appendChild(task);
+        });
+    }
+
+    function taskFactory(title, dueDate, description, priority){
         return{
-            taskTitle: title,
-            taskDescription: description,
-            taskDueDate: dueDate,
-            taskPriority: priority
+            title: title,
+            description: description,
+            dueDate: dueDate,
+            priority: priority
         }
     }
 
@@ -152,14 +164,11 @@ export function listContent(){
                 }
             });
 
-            const test = {
-                title: titleInput.value,
-                date: dueDateInput.value,
-                priority: priority,
-                description: descriptionInput.value
-            };
-
-            console.log(test);
+            taskTodoArray.push(taskFactory(titleInput.value, dueDateInput.value, descriptionInput.value, priority));
+            console.log(taskTodoArray);
+            addHeaderAndTask();
+            form.reset();
+            dialog.close();
         });
         const cancelBtn = document.createElement('button');
         cancelBtn.innerHTML = 'Cancel';
@@ -185,7 +194,14 @@ export function listContent(){
     }
 
     function addHeaderAndTask(){
+        const tasktodoContainer = document.querySelector('#taskToDoContainer');
+        const completedTaskContainer = document.querySelector('#taskCompletedContainer');
+
+        tasktodoContainer.innerHTML = '';
+        completedTaskContainer.innerHTML = '';
+
         addHeaderToContainer();
+        addTaskToContainer();
     }
 
     function showTaskFormDialog() {

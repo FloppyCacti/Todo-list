@@ -128,3 +128,9 @@ dialog{
     justify-content: right;
     gap: 5px;
 }
+
+#taskToDoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
