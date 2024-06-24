@@ -56,7 +56,7 @@ export function listContent(){
         taskTodoArray.forEach(ele => {
             const container = document.querySelector('#taskToDoContainer');
             const taskContainer = document.createElement('div');
-            taskContainer.setAttribute('id', 'taskContainer');
+            taskContainer.classList.add('taskContainer');
 
             const task = document.createElement('div');
             const completeButton = document.createElement('button');
@@ -74,6 +74,27 @@ export function listContent(){
             taskContainer.appendChild(completeButton);
             container.appendChild(taskContainer);
         });
+        taskCompletedArray.forEach(ele => {
+            const container = document.querySelector('#taskCompletedContainer');
+            const taskCompletedContainer = document.createElement('div');
+            taskCompletedContainer.classList.add('taskCompletedContainer');
+
+            const task = document.createElement('div');
+            const removeButton = document.createElement('button');
+            removeButton.classList.add('taskButton');
+            removeButton.innerHTML = '🗑';
+            removeButton.style.fontSize = '30px';
+            removeButton.addEventListener('click', () => {
+                deleteCompletedTask(ele);
+            })
+
+            task.classList.add('taskLabel');
+            task.innerHTML = `${ele.title}`;
+
+            taskCompletedContainer.appendChild(task);
+            taskCompletedContainer.appendChild(removeButton);
+            container.appendChild(taskCompletedContainer);
+        })
     }
 
     function taskFactory(title, dueDate, description, priority){
@@ -225,11 +246,12 @@ export function listContent(){
     }
 
     function moveTaskToCompletedArray(element){
-        console.log('test');
-        const temp = taskTodoArray[element];
-        taskTodoArray.splice(element, 1);
+        const index = taskTodoArray.indexOf(element);
+        const temp = taskTodoArray[index];
+        taskTodoArray.splice(index, 1);
         taskCompletedArray.push(temp);
-        console.log(taskTodoArray, taskCompletedArray);
+        console.log(taskCompletedArray);
+        console.log(temp);
         addHeaderAndTask();
     }
 

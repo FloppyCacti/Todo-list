@@ -136,8 +136,21 @@ dialog{
     background-color: rgba(184, 184, 184, 0.247);
 }
 
-#taskContainer{
+.taskContainer{
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+
+.taskCompletedContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#taskCompletedContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(184, 184, 184, 0.247);
 }
