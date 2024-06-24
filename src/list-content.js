@@ -77,9 +77,13 @@ export function listContent(){
             if(ele.priority == 'high'){
                 taskPriority.style.backgroundColor = 'red';
             }else if(ele.priority == 'medium'){
-                taskPriority.style.backgroundColor = 'yellowgreen';
-            }else if(ele.priority == 'low'){
                 taskPriority.style.backgroundColor = '#32de84';
+            }else if(ele.priority == 'low'){
+                taskPriority.style.backgroundColor = 'yellow';
+                taskPriority.style.color = 'black';
+            }else if(ele.priority == 'no'){
+                taskPriority.style.backgroundColor = 'white';
+                taskPriority.style.color = 'black';
             }
 
             otherInfo.appendChild(taskDate);

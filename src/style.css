@@ -157,10 +157,14 @@ dialog{
 }
 
 #taskToDoHeaderLabel{
+    box-sizing: border-box;
+    padding-left: 10px;
     background-color: #007bff63;
 }
 
 #taskCompletedHeaderLabel{
+    box-sizing: border-box;
+    padding-left: 10px;
     background-color: #ff000086;
 }
 
