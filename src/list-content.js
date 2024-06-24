@@ -59,8 +59,26 @@ export function listContent(){
             const container = document.querySelector('#taskToDoContainer');
             const taskContainer = document.createElement('div');
             taskContainer.classList.add('taskContainer');
+            const taskLabel = document.createElement('div');
+            taskLabel.classList.add('taskLabel');
 
-            const task = document.createElement('div');
+            const taskTitle = document.createElement('div');
+            taskTitle.classList.add('taskTitleLabel');
+            taskTitle.innerHTML = `${ele.title}`;
+
+            const otherInfo = document.createElement('div');
+            otherInfo.setAttribute('id', 'otherInfoInLabel');
+
+            const taskDate = document.createElement('div');
+            taskDate.innerHTML = `${ele.dueDate}`;
+            const taskPriority = document.createElement('div');
+            taskPriority.innerHTML = `${ele.priority}`;
+
+            otherInfo.appendChild(taskDate);
+            otherInfo.appendChild(taskPriority)
+            taskLabel.appendChild(taskTitle);
+            taskLabel.appendChild(otherInfo);
+
             const completeButton = document.createElement('button');
             completeButton.classList.add('taskButton');
             completeButton.innerHTML = '✔';
@@ -69,10 +87,7 @@ export function listContent(){
                 moveTaskToCompletedArray(ele);
             })
 
-            task.classList.add('taskLabel');
-            task.innerHTML = `${ele.title}`;
-
-            taskContainer.appendChild(task);
+            taskContainer.appendChild(taskLabel);
             taskContainer.appendChild(completeButton);
             container.appendChild(taskContainer);
         });
