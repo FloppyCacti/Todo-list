@@ -174,5 +174,16 @@ dialog{
 }
 
 .taskTitleLabel{
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#otherInfoInLabel > #taskPriority{
+    border-radius: 5px;
+    margin-left: auto;
+    width: fit-content;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
 }

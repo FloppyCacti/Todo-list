@@ -1,5 +1,5 @@
 export function listContent(){
-    const taskTodoArray = [taskFactory('test', '10/5/2022', '', 'high')];
+    const taskTodoArray = [taskFactory('test', '10/5/2022', '', 'medium')];
     const taskCompletedArray = [];
 
     function makelistContainer(){
@@ -72,7 +72,15 @@ export function listContent(){
             const taskDate = document.createElement('div');
             taskDate.innerHTML = `${ele.dueDate}`;
             const taskPriority = document.createElement('div');
+            taskPriority.setAttribute('id', 'taskPriority');
             taskPriority.innerHTML = `${ele.priority}`;
+            if(ele.priority == 'high'){
+                taskPriority.style.backgroundColor = 'red';
+            }else if(ele.priority == 'medium'){
+                taskPriority.style.backgroundColor = 'yellowgreen';
+            }else if(ele.priority == 'low'){
+                taskPriority.style.backgroundColor = '#32de84';
+            }
 
             otherInfo.appendChild(taskDate);
             otherInfo.appendChild(taskPriority)
