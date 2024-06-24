@@ -1,5 +1,3 @@
-import { ProvidePlugin } from "webpack";
-
 export function listContent(){
     const taskTodoArray = [];
     const taskCompletedArray = [];
@@ -138,13 +136,6 @@ export function listContent(){
         descriptionContainer.appendChild(descriptionLabel);
         descriptionContainer.appendChild(descriptionInput);
 
-        function showError(){
-            const showError = document.createElement('div');
-            showError.innerHTML = '* input cannot be empty'
-            showError.style.color = 'red';
-
-            descriptionContainer.appendChild(showError);
-        }
 
         const listFormButtonContainer = document.createElement('div');
         listFormButtonContainer.setAttribute('id', 'listFormButtons');
@@ -161,11 +152,14 @@ export function listContent(){
                 }
             });
 
-            if(titleInput.value == '' || dueDateInput.value == '' || priority == '' || priority == null){
-                showError();
-            }
+            const test = {
+                title: titleInput.value,
+                date: dueDateInput.value,
+                priority: priority,
+                description: descriptionInput.value
+            };
 
-            taskTodoArray.push(taskFactory(titleInput.value, dueDateInput.value, priority, descriptionInput.value))
+            console.log(test);
         });
         const cancelBtn = document.createElement('button');
         cancelBtn.innerHTML = 'Cancel';
