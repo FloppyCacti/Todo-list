@@ -255,6 +255,13 @@ export function listContent(){
         addHeaderAndTask();
     }
 
+    function deleteCompletedTask(element){
+        const index = taskCompletedArray.indexOf(element);
+
+        taskCompletedArray.splice(index, 1);
+        addHeaderAndTask();
+    }
+
     taskform();
     makelistContainer();
     addHeaderAndTask();
