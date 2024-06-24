@@ -55,12 +55,20 @@ export function listContent(){
     function addTaskToContainer(){
         taskTodoArray.forEach(ele => {
             const container = document.querySelector('#taskToDoContainer');
+            const taskContainer = document.createElement('div');
+            taskContainer.setAttribute('id', 'taskContainer');
 
             const task = document.createElement('div');
+            const completeButton = document.createElement('button');
+            completeButton.classList.add('taskButton');
+            completeButton.innerHTML = '✔';
+            completeButton.style.fontSize = '30px';
             task.classList.add('taskLabel');
             task.innerHTML = `${ele.title}`;
 
-            container.appendChild(task);
+            taskContainer.appendChild(task);
+            taskContainer.appendChild(completeButton);
+            container.appendChild(taskContainer);
         });
     }
 
@@ -211,7 +219,7 @@ export function listContent(){
         }
         dialog.showModal();
     }
-
+    
     taskform();
     makelistContainer();
     addHeaderAndTask();
