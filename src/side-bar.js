@@ -1,5 +1,7 @@
+import { makeListContainer, makeListContent, refreshArray } from './list-content.js';
+
 export function addSideBar(){
-    const categories = [categoryFactory('Today'),categoryFactory('Upcoming')]
+    const categories = [categoryFactory('Today'),categoryFactory('Upcoming')];
 
     function InsertSideBarToContainer(){
         const container = document.querySelector('#container');
@@ -24,7 +26,9 @@ export function addSideBar(){
 
     function categoryFactory(name){
         return{
-            categoryName: name
+            categoryName: name,
+            taskToDoArray: [],
+            taskCompletedArray: []
         }
     }
 
@@ -34,8 +38,6 @@ export function addSideBar(){
         if (listOfCategories) {
             listOfCategories.remove();
         }
-    
-        // Create a new category container
         listOfCategories = document.createElement('div');
         listOfCategories.setAttribute('id', 'categoryContainer');
     
@@ -61,6 +63,11 @@ export function addSideBar(){
             categoryElement.classList.add('sidebarButtons');
             categoryElement.setAttribute('id', 'categoryElement');
             categoryElement.innerHTML = `${element.categoryName}`;
+            categoryElement.addEventListener('click', () => {
+                refreshArray(element.taskToDoArray, element.taskCompletedArray);
+                makeListContent();
+                console.log(element);
+            })
 
             category.appendChild(categoryElement);
             category.appendChild(editCategoryButton);
@@ -162,4 +169,5 @@ export function addSideBar(){
     InsertSideBarToContainer();
     buttonToAddCategory();
     insertCategoriesIntoSideBar();
+    makeListContainer();
 }

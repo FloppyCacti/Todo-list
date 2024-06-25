@@ -1,30 +1,30 @@
-export function listContent(){
-    const taskTodoArray = [taskFactory('test', '10/5/2022', '', 'medium')];
-    const taskCompletedArray = [];
+let taskTodoArray = [];
+let taskCompletedArray = [];
+export function makeListContainer(){
+    const container = document.querySelector('#container');
 
-    function makelistContainer(){
-        const container = document.querySelector('#container');
+    const listContent = document.createElement('div');
+    listContent.setAttribute('id', 'listContent');
 
-        const listContent = document.createElement('div');
-        listContent.setAttribute('id', 'listContent');
+    const listContainer = document.createElement('div');
+    listContainer.setAttribute('id', 'listContainer');
 
-        const listContainer = document.createElement('div');
-        listContainer.setAttribute('id', 'listContainer');
+    const taskCompletedContainer = document.createElement('div');
+    taskCompletedContainer.setAttribute('id', 'taskCompletedContainer');
 
-        const taskCompletedContainer = document.createElement('div');
-        taskCompletedContainer.setAttribute('id', 'taskCompletedContainer');
+    const tasktodoContainer = document.createElement('div');
+    tasktodoContainer.setAttribute('id', 'taskToDoContainer');
 
-        const tasktodoContainer = document.createElement('div');
-        tasktodoContainer.setAttribute('id', 'taskToDoContainer');
+    listContainer.appendChild(tasktodoContainer);
+    listContainer.appendChild(taskCompletedContainer);
+    listContent.appendChild(listContainer); 
+    container.appendChild(listContent);
+}
 
-        listContainer.appendChild(tasktodoContainer);
-        listContainer.appendChild(taskCompletedContainer);
-        listContent.appendChild(listContainer); 
-        container.appendChild(listContent);
-    }
-
+export function makeListContent(){
     function addHeaderToContainer(){
         const taskToDoContainer = document.querySelector('#taskToDoContainer');
+        taskToDoContainer.innerHTML = '';
         taskToDoContainer.setAttribute('id', 'taskToDoContainer');
         const taskToDoHeader   = document.createElement('div');
         const taskToDoLabel = document.createElement('div');
@@ -43,6 +43,7 @@ export function listContent(){
         taskToDoContainer.appendChild(taskToDoHeader);  
 
         const taskCompletedContainer = document.querySelector('#taskCompletedContainer');
+        taskCompletedContainer.innerHTML = '';
         const taskCompletedHeader = document.createElement('div');
         const taskCompletedLabel = document.createElement('div');
         taskCompletedLabel.classList.add('taskLabel');
@@ -227,7 +228,6 @@ export function listContent(){
             });
 
             taskTodoArray.push(taskFactory(titleInput.value, dueDateInput.value, descriptionInput.value, priority));
-            console.log(taskTodoArray);
             addHeaderAndTask();
             form.reset();
             dialog.close();
@@ -251,8 +251,6 @@ export function listContent(){
         form.appendChild(listFormButtonContainer);
         dialog.appendChild(form);
         document.body.appendChild(dialog);
-
-        return dialog;
     }
 
     function addHeaderAndTask(){
@@ -279,8 +277,6 @@ export function listContent(){
         const temp = taskTodoArray[index];
         taskTodoArray.splice(index, 1);
         taskCompletedArray.push(temp);
-        console.log(taskCompletedArray);
-        console.log(temp);
         addHeaderAndTask();
     }
 
@@ -292,6 +288,10 @@ export function listContent(){
     }
 
     taskform();
-    makelistContainer();
     addHeaderAndTask();
+}
+
+export function refreshArray(newTodo, newCompleted){
+    taskTodoArray = newTodo;
+    taskCompletedArray = newCompleted;
 }
