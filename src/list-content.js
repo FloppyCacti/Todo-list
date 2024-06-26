@@ -259,6 +259,8 @@ export function makeListContent(){
 
         tasktodoContainer.innerHTML = '';
         completedTaskContainer.innerHTML = '';
+        localStorage.taskToDo = JSON.stringify(taskTodoArray);
+        localStorage.taskCompleted = JSON.stringify(taskCompletedArray);
 
         addHeaderToContainer();
         addTaskToContainer();
@@ -277,6 +279,8 @@ export function makeListContent(){
         const temp = taskTodoArray[index];
         taskTodoArray.splice(index, 1);
         taskCompletedArray.push(temp);
+        localStorage.taskToDo = JSON.stringify(taskTodoArray);
+        localStorage.taskCompleted = JSON.stringify(taskCompletedArray);
         addHeaderAndTask();
     }
 
@@ -284,6 +288,7 @@ export function makeListContent(){
         const index = taskCompletedArray.indexOf(element);
 
         taskCompletedArray.splice(index, 1);
+        localStorage.taskCompleted = JSON.stringify(taskCompletedArray);
         addHeaderAndTask();
     }
 

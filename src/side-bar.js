@@ -1,13 +1,14 @@
 import { makeListContainer, makeListContent, refreshArray } from './list-content.js';
 
 export function addSideBar(){
-    const categories = [categoryFactory('Today'),categoryFactory('Upcoming')];
+    const categories = JSON.parse(localStorage.categories);
 
     function InsertSideBarToContainer(){
         const container = document.querySelector('#container');
 
         const sideBar = document.createElement('div');
         sideBar.setAttribute('id', 'sideBar');
+        localStorage.categories = JSON.stringify(categories);
 
         container.appendChild(sideBar);
     }
@@ -66,7 +67,7 @@ export function addSideBar(){
             categoryElement.addEventListener('click', () => {
                 refreshArray(element.taskToDoArray, element.taskCompletedArray);
                 makeListContent();
-                console.log(element);
+                localStorage.categories = JSON.stringify(categories);
             })
 
             category.appendChild(categoryElement);
@@ -136,6 +137,7 @@ export function addSideBar(){
 
     function addCategoryToArray(name){
         categories.push(categoryFactory(name));
+        localStorage.categories = JSON.stringify(categories);
     }
 
     function deleteCategory(element){
@@ -144,6 +146,7 @@ export function addSideBar(){
         if (index > -1) {
             categories.splice(index, 1);
             insertCategoriesIntoSideBar();
+            localStorage.categories = JSON.stringify(categories);
         }
     }
 
@@ -156,6 +159,7 @@ export function addSideBar(){
             element.categoryName = newName;
             insertCategoriesIntoSideBar();
         }
+        localStorage.categories = JSON.stringify(categories);
     }
 
     function showCategoryFormDialog() {
